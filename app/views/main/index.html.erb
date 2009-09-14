@@ -2,14 +2,5 @@
 <% if session[:name] != nil %>
   <p>מחובר בתור  <%= session[:name]%> (<%= link_to "להתנתקות", :action => "logout" %>)</p>
 <% else %>
-  <%= link_to "התחברות",:action => "login" %>
+  <p>אינכם מחוברים כרגע.</p>
 <% end  %>
-
-<p>
-  <%= link_to "התוצאות",:action => "results" %>
-  <%= link_to "הרשמה",:action => "register" %>
-  <%= link_to "התחברות",:action => "login" %>
-  <% if session[:name] != nil %>
-    <%= link_to "לכתיבת ההערות",:action => "edit_comments" %>
-  <% end  %>
-</p>

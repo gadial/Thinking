@@ -6,7 +6,7 @@
 	<% for user in @users.reject{|u| u.name == session[:name]} do %>
 	  <tr>
 		<td> <%=h user.name %>: </td>
-		<td> <%= text_field_tag "user_" + user.name, user.comments_string(session[:name]), :size => 150 %> </td>
+		<td> <%= text_field_tag "user_" + user.name, user.comments_string(session[:name]), :size => 100 %> </td>
 	  </tr>
 	<% end %>
 </table>
