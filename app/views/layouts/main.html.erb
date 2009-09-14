@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" DIR="RTL"">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>מה חושבים עלייך?</title>
+  <%= stylesheet_link_tag 'style' %>
+</head>
+<body>
+<div id="header">
+  <h1>מה חושבים עליכם?</h1>
+  <% if session[:name] != nil %>
+        <p>מחובר בתור <%= session[:name]%> </p>
+  <% end %>
+  <div id="menu">
+    <ul id="nav">
+      <% if session[:name] != nil %>
+        <li><%= link_to "להתנתקות", :action => "logout" %></li>
+      <% else %>
+        <li><%= link_to "התחברות",:action => "login" %></li>
+        <li><%= link_to "הרשמה",:action => "register" %></li>
+      <% end  %>
+      <li><%= link_to "התוצאות",:action => "results" %></li>
+      <% if session[:name] != nil %>
+        <li><%= link_to "לכתיבת ההערות",:action => "edit_comments" %></li>
+      <% end  %>
+    </ul>
+  </div>
+</div>
+<div id="content">
+  <p style="color: green"><%= flash[:notice] %></p>
+  <p style="color: red"><%= flash[:error] %></p>
+  <div id="right">
+    <div class="box">
+      <%= yield  %>
+    </div>
+  </div>
+</div>
+</body>
+</html>
