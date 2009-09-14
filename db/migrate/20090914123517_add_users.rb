@@ -5,7 +5,7 @@ class AddUsers < ActiveRecord::Migration
     users.collect!{|line| line.split("\t")}
     users.each do |user_data|
       User.new do |user|
-        user.username = user_data[0]
+        user.name = user_data[0]
         user.password = user_data[1]
         user.save
       end
