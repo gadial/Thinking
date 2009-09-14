@@ -1,0 +1,11 @@
+<h1>
+מה חושבים עליכם? התוצאות
+</h1>
+<% for user in @users do %>
+  <h2>
+  <%=h user.name %>
+  </h2>
+  <p>
+    <%=h user.describing_comments.collect{|comment| comment.text}.sort.join(", ") %>
+  </p>
+<% end %>
