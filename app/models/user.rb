@@ -1,3 +1,5 @@
+require 'auxiliary'
+
 class User < ActiveRecord::Base
   @@comment_string_seperator = ", "
 #  validates_length_of :name, :within => 3..20
@@ -42,4 +44,16 @@ class User < ActiveRecord::Base
         end
       end
     end
+		#one sorted comments string with multiplicites
+		def describing_comments_normal_view
+			describing_comments.collect{|comment| comment.text}.sort.join(", ")
+		end
+		def describing_comments_truncted_view
+			describing_comments.collect{|comment| comment.text}.uniq.sort.join(", ")
+		end
+		#comments string without multiplicities, with repeated comments inflated
+		def describing_comments_inflated_view
+			comments = describing_comments.collect{|comment| comment.text}
+			comments.uniq.sort.collect{|comment| "<span style=\"font-size: #{100+50*(comments.count(comment)-1)}%\">#{comment}</span>"}.join(", ")
+		end
 end

@@ -1,11 +1,13 @@
 <h1>
 מה חושבים עליכם? התוצאות
 </h1>
-<% for user in @users do %>
-  <h2>
-  <%=h user.name %>
-  </h2>
-  <p>
-    <%=h user.describing_comments.collect{|comment| comment.text}.sort.join(", ") %>
-  </p>
-<% end %>
+<select id="options" onchange="<%= remote_function(:update => "user_list",
+      :url => { :action => :display_results }, :with => "'view_type=' + encodeURIComponent(value)") %>">
+    <option value="normal_view">הצג כפילויות</option>
+    <option value="inflated_view">הצג ניפוח</option>
+    <option value="truncted_view">הסתר כפילויות</option>
+  </select>
+
+<div id="user_list">
+  <%= render (:partial => "result_user_list") %>
+</div>

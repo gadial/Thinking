@@ -1,6 +1,12 @@
 class MainController < ApplicationController
 	def results
+		@view_type = 0
 		@users = User.find(:all)
+		params[:view_type] = "normal_view"
+	end
+	def display_results
+		@users = User.find(:all)
+		render :partial => "result_user_list"
 	end
 	def register
 		@user = User.new
