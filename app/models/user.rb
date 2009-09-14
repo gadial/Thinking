@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 			self.password_hash = User.hashed_password(@password, self.salt)
 		end
     def comments_string(submitter = nil)
-      self.describing_comments.find_all{|comment| submitter == nil or comment.submitter.name == submitter}.collect{|comment| comment.text}.join(", ")
+      self.describing_comments.find_all{|comment| submitter == nil or comment.submitter.name == submitter}.collect{|comment| comment.text}.join(@@comment_string_seperator)
     end
     def set_comments(comment_string, submitter = nil)
       comments_to_delete = self.describing_comments.find_all{|comment| submitter == nil or comment.submitter.name == submitter}
