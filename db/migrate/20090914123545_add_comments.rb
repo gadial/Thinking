@@ -8,7 +8,7 @@ def rand_in_range(range)
 end
 
 class AddComments < ActiveRecord::Migration
-	@comments_par_user = 10..15
+	@comments_par_user = 20..30
   def self.up
 		down
 		comments_array = File.open("public/comments.dat","r"){|file| file.read.split("\n")}
