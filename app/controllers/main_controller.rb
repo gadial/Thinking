@@ -53,6 +53,9 @@ class MainController < ApplicationController
 	def edit_comments
 		@users = User.find(:all)
 	end
+	def edit_password
+		@user = User.find_by_name(session[:name])
+	end
   def save_comments
     #TODO: check for double comments and remove them
     comments = {}
@@ -65,7 +68,7 @@ class MainController < ApplicationController
       user.set_comments(comments_string, session[:name])
     end
     flash[:notice] = "ההערות שונו בהצלחה"
-    render :action => "index"
+    redirect_to :action => "index"
   end
 	def index
 		if session[:name] != nil
