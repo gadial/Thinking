@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
 						validates_uniqueness_of :name, :on => :create, :message => "שם המשתמש כבר תפוס"
 						validates_confirmation_of :password, :message => "הססמא ואישור הססמא אינם תואמים"
-						validates_length_of :password, :minimum => 5, :message => "אנא בחרו ססמא שאורכה לפחות חמישה תווים"
+						validates_length_of :password, :minimum => 5, :message => "אנא בחרו ססמא שאורכה לפחות חמישה תווים", :on => :create
 		def create_new_salt
 			self.salt = self.object_id.to_s + Kernel.rand.to_s
 		end

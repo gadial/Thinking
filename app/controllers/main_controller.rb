@@ -10,6 +10,7 @@ class MainController < ApplicationController
 	end
 	def register
 		@user = User.new
+		@user.participates = 1
 	end
 	def add_user
 		@user = User.new(params[:user])
@@ -19,6 +20,13 @@ class MainController < ApplicationController
       else
         render :action => "register"
       end
+	end
+	def update_user
+		@user = User.find_by_name(session[:name])
+		if @user.update_attributes(params[:user])
+			flash[:notice] = "המשתמש עודכן בהצלחה"
+		end
+			render :action => "index"
 	end
   def login
     name = params[:name]
@@ -59,4 +67,9 @@ class MainController < ApplicationController
     flash[:notice] = "ההערות שונו בהצלחה"
     render :action => "index"
   end
+	def index
+		if session[:name] != nil
+			@user = User.find_by_name(session[:name])
+		end
+	end
 end

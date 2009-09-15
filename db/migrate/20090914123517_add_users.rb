@@ -7,6 +7,7 @@ class AddUsers < ActiveRecord::Migration
       User.new do |user|
         user.name = user_data[0]
         user.password = user_data[1]
+				user.participates = 1
         user.save
       end
     end

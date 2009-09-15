@@ -1,6 +1,16 @@
 <h1>ברוכים הבאים אל "מה חושבים עליכם"</h1>
-<% if session[:name] != nil %>
+<% if session[:name] != nil and @user != nil%>
   <p>מחובר בתור  <%= session[:name]%> (<%= link_to "להתנתקות", :action => "logout" %>)</p>
+  <% form_for @user, :url => {:controller => :main, :action => :update_user} do |f| %>
+	<%= f.error_messages  :header_message => "עדכון המשתמש נכשל", :message => "הבעיות הבאות מנעו את עדכון המשתמש:" %>
+	<p>
+	  <%= f.label "גלוי לשאר המשתתפים"  %>
+	  <%= f.check_box :participates %>
+	</p>
+	<p>
+	    <%= f.submit "אשר" %>
+	</p>
+  <% end %>
 <% else %>
   <p>אינכם מחוברים כרגע.</p>
 <% end  %>

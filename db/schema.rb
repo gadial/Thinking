@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20090914123545) do
     t.string   "name"
     t.string   "password_hash"
     t.string   "salt"
-    t.string   "participates"
+    t.integer  "participates"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
