@@ -3,4 +3,5 @@ class Comment < ActiveRecord::Base
              :class_name => "User"
   belongs_to :target,
             :class_name => "User"
+	belongs_to :session
 end
