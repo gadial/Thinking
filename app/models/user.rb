@@ -3,6 +3,7 @@ require 'auxiliary'
 
 class User < ActiveRecord::Base
   @@comment_string_seperator = "\n"
+  @@comment_string_joiner = " | "
 #  validates_length_of :name, :within => 3..20
   has_many :submitted_comments,
             :class_name => "Comment",
@@ -49,14 +50,14 @@ belongs_to :session
     end
 		#one sorted comments string with multiplicites
 		def describing_comments_normal_view
-			describing_comments.collect{|comment| comment.text}.sort.join(", ")
+			describing_comments.collect{|comment| comment.text}.sort.join(@@comment_string_joiner)
 		end
 		def describing_comments_truncted_view
-			describing_comments.collect{|comment| comment.text}.uniq.sort.join(", ")
+			describing_comments.collect{|comment| comment.text}.uniq.sort.join(@@comment_string_joiner)
 		end
 		#comments string without multiplicities, with repeated comments inflated
 		def describing_comments_inflated_view
 			comments = describing_comments.collect{|comment| comment.text}
-			comments.uniq.sort.collect{|comment| "<span style=\"font-size: #{100+50*(comments.count(comment)-1)}%\">#{comment}</span>"}.join(", ")
+			comments.uniq.sort.collect{|comment| "<span style=\"font-size: #{100+50*(comments.count(comment)-1)}%\">#{comment}</span>"}.join(@@comment_string_joiner)
 		end
 end
