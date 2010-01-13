@@ -1,12 +1,12 @@
 class MainController < ApplicationController
 	def results
-		@users = User.find(:all)
+		@users = User.find(:all, :order => "name")
 		session[:view_type] ||= "normal_view"
     temp_user = User.find_by_name(session[:name])
     session[:view_type] = temp_user.view_type if temp_user != nil
 	end
 	def set_view_type
-		@users = User.find(:all)
+		@users = User.find(:all, :order => "name")
     session[:view_type] = params[:view_type]
     temp_user = User.find_by_name(session[:name])
     if params[:view_type] != nil and temp_user != nil
