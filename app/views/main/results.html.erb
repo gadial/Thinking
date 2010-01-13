@@ -2,10 +2,10 @@
 מה חושבים עליכם? התוצאות
 </h1>
 <select id="options" onchange="<%= remote_function(:update => "user_list",
-      :url => { :action => :display_results }, :with => "'view_type=' + encodeURIComponent(value)") %>">
-    <option value="normal_view">הצג כפילויות</option>
-    <option value="inflated_view">הצג ניפוח</option>
-    <option value="truncted_view">הסתר כפילויות</option>
+      :url => { :action => :set_view_type }, :with => "'view_type=' + encodeURIComponent(value)") %>">
+    <option value="normal_view" <%= ((session[:view_type] == "normal_view")?("selected"):(""))%> >הצג כפילויות</option>
+    <option value="inflated_view" <%= ((session[:view_type] == "inflated_view")?("selected"):(""))%> >הצג ניפוח</option>
+    <option value="truncted_view" <%= ((session[:view_type] == "truncted_view")?("selected"):(""))%> >הסתר כפילויות</option>
   </select>
 
 <div id="user_list">

@@ -1,11 +1,18 @@
 class MainController < ApplicationController
 	def results
-		@view_type = 0
 		@users = User.find(:all)
-		params[:view_type] = "normal_view"
+		session[:view_type] ||= "normal_view"
+    temp_user = User.find_by_name(session[:name])
+    session[:view_type] = temp_user.view_type if temp_user != nil
 	end
-	def display_results
+	def set_view_type
 		@users = User.find(:all)
+    session[:view_type] = params[:view_type]
+    temp_user = User.find_by_name(session[:name])
+    if params[:view_type] != nil and temp_user != nil
+      temp_user.view_type = params[:view_type]
+      temp_user.save
+    end
 		render :partial => "result_user_list"
 	end
 	def register

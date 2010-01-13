@@ -3,7 +3,7 @@
     <%=h user.name %>
     </h2>
     <p>
-      <% case params[:view_type]
+      <% case session[:view_type]
 	  when "normal_view" %>
 	  <%= user.describing_comments_normal_view %>
       <% when "inflated_view" %>
