@@ -2,7 +2,7 @@ require 'digest/sha2'
 require 'auxiliary'
 
 class User < ActiveRecord::Base
-  @@comment_string_seperator = ", "
+  @@comment_string_seperator = "\n"
 #  validates_length_of :name, :within => 3..20
   has_many :submitted_comments,
             :class_name => "Comment",
