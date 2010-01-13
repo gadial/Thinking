@@ -3,7 +3,7 @@ class CreateSessions < ActiveRecord::Migration
     create_table :sessions do |t|
       t.integer :number
       t.integer :registration_enabled
-      t.integer :commenting_enables
+      t.integer :commenting_enabled
       t.integer :results_view_enabled
 			t.integer :active
 			

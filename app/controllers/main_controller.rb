@@ -10,7 +10,7 @@ class MainController < ApplicationController
 	end
 	def register
 		@user = User.new
-		@user.participates = 1
+		@user.participates = 0 #pending manual authorization
 	end
 	def add_user
 		@user = User.new(params[:user])

@@ -9,12 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090914123545) do
+ActiveRecord::Schema.define(:version => 20090926094114) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
     t.integer  "submitter_id"
     t.integer  "target_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.integer  "number"
+    t.integer  "registration_enabled"
+    t.integer  "commenting_enabled"
+    t.integer  "results_view_enabled"
+    t.integer  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
