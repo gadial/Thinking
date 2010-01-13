@@ -1,0 +1,16 @@
+  <% for user in @users.reject{|u| u.participates == 0} do %>
+    <h2>
+    <%=h user.name %>
+    </h2>
+    <p>
+      <% case params[:view_type]
+	  when "normal_view" %>
+	  <%= user.describing_comments_normal_view %>
+      <% when "inflated_view" %>
+	  <%= user.describing_comments_inflated_view %>
+      <%when "truncted_view"%>
+	  <%= user.describing_comments_truncted_view %>
+      <% end %>
+    </p>
+    <br>
+  <% end %>
