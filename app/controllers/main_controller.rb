@@ -58,7 +58,7 @@ class MainController < ApplicationController
     redirect_to :action => "index"
   end
 	def edit_comments
-		@users = User.find(:all)
+		@users = User.find(:all, :order => "name")
 	end
 	def edit_password
 		@user = User.find_by_name(session[:name])
