@@ -1,3 +1,4 @@
+require 'digest/sha2'
 require 'auxiliary'
 
 class User < ActiveRecord::Base
@@ -19,7 +20,7 @@ belongs_to :session
 			self.salt = self.object_id.to_s + Kernel.rand.to_s
 		end
 		def User.hashed_password(password,salt)
-			Digest::SHA1.hexdigest(password + "radio-gaga" + salt)
+			Digest::SHA256.hexdigest(password + "radio-gaga" + salt)
 		end
 		def password
 			@password
