@@ -64,7 +64,6 @@ class MainController < ApplicationController
 		@user = User.find_by_name(session[:name])
 	end
   def save_comments
-    #TODO: check for double comments and remove them
     comments = {}
     params.find_all{|key, val| key =~ /^user_.*/}.each do |pair|
       pair[0] =~ /^user_/

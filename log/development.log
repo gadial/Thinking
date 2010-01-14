@@ -4844,3 +4844,412 @@ Rendering main/edit_comments
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
 Completed in 77ms (View: 66, DB: 2) | 200 OK [http://localhost/main/edit_comments]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:41:22) [GET]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+
+ActionView::TemplateError (undefined method `expanion_function' for #<User:0xb74bd248>) on line #10 of app/views/main/_result_user_list.html.erb:
+7: 	  when "normal_view" %>
+8: 	  <%= user.describing_comments_normal_view %>
+9:       <% when "inflated_view" %>
+10: 	  <%= user.describing_comments_inflated_view %>
+11:       <%when "truncted_view"%>
+12: 	  <%= user.describing_comments_truncted_view %>
+13:       <% end %>
+
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/models/user.rb:63:in `collect'
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/views/main/_result_user_list.html.erb:10
+    app/views/main/_result_user_list.html.erb:1:in `each'
+    app/views/main/_result_user_list.html.erb:1
+    app/views/main/results.html.erb:15
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:41:43) [GET]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+
+ActionView::TemplateError (undefined method `expanion_function' for #<User:0xb738c400>) on line #10 of app/views/main/_result_user_list.html.erb:
+7: 	  when "normal_view" %>
+8: 	  <%= user.describing_comments_normal_view %>
+9:       <% when "inflated_view" %>
+10: 	  <%= user.describing_comments_inflated_view %>
+11:       <%when "truncted_view"%>
+12: 	  <%= user.describing_comments_truncted_view %>
+13:       <% end %>
+
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/models/user.rb:63:in `collect'
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/views/main/_result_user_list.html.erb:10
+    app/views/main/_result_user_list.html.erb:1:in `each'
+    app/views/main/_result_user_list.html.erb:1
+    app/views/main/results.html.erb:15
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (35.8ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:41:44) [GET]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (3.9ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+
+ActionView::TemplateError (undefined method `expanion_function' for #<User:0xb7406188>) on line #10 of app/views/main/_result_user_list.html.erb:
+7: 	  when "normal_view" %>
+8: 	  <%= user.describing_comments_normal_view %>
+9:       <% when "inflated_view" %>
+10: 	  <%= user.describing_comments_inflated_view %>
+11:       <%when "truncted_view"%>
+12: 	  <%= user.describing_comments_truncted_view %>
+13:       <% end %>
+
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/models/user.rb:63:in `collect'
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/views/main/_result_user_list.html.erb:10
+    app/views/main/_result_user_list.html.erb:1:in `each'
+    app/views/main/_result_user_list.html.erb:1
+    app/views/main/results.html.erb:15
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:41:45) [GET]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+
+ActionView::TemplateError (undefined method `expanion_function' for #<User:0xb7032a48>) on line #10 of app/views/main/_result_user_list.html.erb:
+7: 	  when "normal_view" %>
+8: 	  <%= user.describing_comments_normal_view %>
+9:       <% when "inflated_view" %>
+10: 	  <%= user.describing_comments_inflated_view %>
+11:       <%when "truncted_view"%>
+12: 	  <%= user.describing_comments_truncted_view %>
+13:       <% end %>
+
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/models/user.rb:63:in `collect'
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/views/main/_result_user_list.html.erb:10
+    app/views/main/_result_user_list.html.erb:1:in `each'
+    app/views/main/_result_user_list.html.erb:1
+    app/views/main/results.html.erb:15
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (77.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:41:45) [GET]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+
+ActionView::TemplateError (undefined method `expanion_function' for #<User:0xb7197870>) on line #10 of app/views/main/_result_user_list.html.erb:
+7: 	  when "normal_view" %>
+8: 	  <%= user.describing_comments_normal_view %>
+9:       <% when "inflated_view" %>
+10: 	  <%= user.describing_comments_inflated_view %>
+11:       <%when "truncted_view"%>
+12: 	  <%= user.describing_comments_truncted_view %>
+13:       <% end %>
+
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/models/user.rb:63:in `collect'
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/views/main/_result_user_list.html.erb:10
+    app/views/main/_result_user_list.html.erb:1:in `each'
+    app/views/main/_result_user_list.html.erb:1
+    app/views/main/results.html.erb:15
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (34.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#index (for 127.0.0.1 at 2010-01-14 10:41:49) [GET]
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/index
+Completed in 28ms (View: 15, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#index (for 127.0.0.1 at 2010-01-14 10:41:49) [GET]
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/index
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:41:50) [GET]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+
+ActionView::TemplateError (undefined method `expanion_function' for #<User:0xb705fed0>) on line #10 of app/views/main/_result_user_list.html.erb:
+7: 	  when "normal_view" %>
+8: 	  <%= user.describing_comments_normal_view %>
+9:       <% when "inflated_view" %>
+10: 	  <%= user.describing_comments_inflated_view %>
+11:       <%when "truncted_view"%>
+12: 	  <%= user.describing_comments_truncted_view %>
+13:       <% end %>
+
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/models/user.rb:63:in `collect'
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/views/main/_result_user_list.html.erb:10
+    app/views/main/_result_user_list.html.erb:1:in `each'
+    app/views/main/_result_user_list.html.erb:1
+    app/views/main/results.html.erb:15
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (75.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:42:03) [GET]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (14.2ms)
+Completed in 38ms (View: 23, DB: 3) | 200 OK [http://localhost/main/results]
+  [4;35;1mSQL (11.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#set_view_type (for 127.0.0.1 at 2010-01-14 10:42:19) [POST]
+  Parameters: {"view_type"=>"normal_view", "authenticity_token"=>"zfKgyGumYF44njih2A/Kg6VUkHw3KrOkSLJyDf1vWtE="}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` ORDER BY name[0m
+  [4;36;1mUser Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.2ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-01-14 08:42:19', `view_type` = 'normal_view' WHERE `id` = 7[0m
+  [4;36;1mSQL (36.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;36;1mComment Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (12.0ms)
+Completed in 64ms (View: 12, DB: 50) | 200 OK [http://localhost/main/set_view_type]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#set_view_type (for 127.0.0.1 at 2010-01-14 10:42:21) [POST]
+  Parameters: {"view_type"=>"inflated_view", "authenticity_token"=>"zfKgyGumYF44njih2A/Kg6VUkHw3KrOkSLJyDf1vWtE="}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.2ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-01-14 08:42:21', `view_type` = 'inflated_view' WHERE `id` = 7[0m
+  [4;35;1mSQL (39.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (19.3ms)
+Completed in 110ms (View: 18, DB: 43) | 200 OK [http://localhost/main/set_view_type]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#set_view_type (for 127.0.0.1 at 2010-01-14 10:42:40) [POST]
+  Parameters: {"view_type"=>"normal_view", "authenticity_token"=>"zfKgyGumYF44njih2A/Kg6VUkHw3KrOkSLJyDf1vWtE="}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` ORDER BY name[0m
+  [4;36;1mUser Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.2ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-01-14 08:42:40', `view_type` = 'normal_view' WHERE `id` = 7[0m
+  [4;36;1mSQL (51.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mComment Load (0.3ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;36;1mComment Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (12.0ms)
+Completed in 80ms (View: 12, DB: 54) | 200 OK [http://localhost/main/set_view_type]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#set_view_type (for 127.0.0.1 at 2010-01-14 10:42:41) [POST]
+  Parameters: {"view_type"=>"truncted_view", "authenticity_token"=>"zfKgyGumYF44njih2A/Kg6VUkHw3KrOkSLJyDf1vWtE="}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-01-14 08:42:41', `view_type` = 'truncted_view' WHERE `id` = 7[0m
+  [4;35;1mSQL (54.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;35;1mComment Load (0.3ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (13.2ms)
+Completed in 85ms (View: 13, DB: 58) | 200 OK [http://localhost/main/set_view_type]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#set_view_type (for 127.0.0.1 at 2010-01-14 10:42:42) [POST]
+  Parameters: {"view_type"=>"normal_view", "authenticity_token"=>"zfKgyGumYF44njih2A/Kg6VUkHw3KrOkSLJyDf1vWtE="}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` ORDER BY name[0m
+  [4;36;1mUser Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.2ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-01-14 08:42:42', `view_type` = 'normal_view' WHERE `id` = 7[0m
+  [4;36;1mSQL (37.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;36;1mComment Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (12.6ms)
+Completed in 66ms (View: 13, DB: 40) | 200 OK [http://localhost/main/set_view_type]

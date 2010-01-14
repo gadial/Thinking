@@ -60,6 +60,6 @@ belongs_to :session
 		#comments string without multiplicities, with repeated comments inflated
 		def describing_comments_inflated_view
 			comments = describing_comments.collect{|comment| comment.text}
-			comments.uniq.sort.collect{|comment| "<span style=\"font-size: #{100+50*(comments.count(comment)-1)}%\">#{comment}</span>"}.join(@@comment_string_joiner)
+			comments.uniq.sort.collect{|comment| "<span style=\"font-size: #{expansion_function(100,comments.count(comment))}%\">#{comment}</span>"}.join(@@comment_string_joiner)
 		end
 end
