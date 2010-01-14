@@ -1,3 +1,4 @@
+require 'auxiliary'
 class AdminController < ApplicationController
   def index
   end
@@ -11,4 +12,10 @@ class AdminController < ApplicationController
 	def update_users
 		redirect_to :action => :users
 	end
+  def clean_comments
+    for comment in Comment.find(:all)
+      comment.text = comment.text.clear
+    end
+    redirect_to :action => index
+  end
 end
