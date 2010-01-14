@@ -1,0 +1,11 @@
+  <% for user in @users do %>
+    <h2>
+    <%=h user.name %>
+    </h2>
+    <p>
+      <%for comment in user.describing_comments_list %>
+      <%= link_to comment, :action => :remove_comments, :comment => comment, :target_id => user.id %>
+      <% end %>
+    </p>
+    <br>
+  <% end %>

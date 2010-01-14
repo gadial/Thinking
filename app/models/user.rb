@@ -51,6 +51,9 @@ belongs_to :session
       end
     end
 		#one sorted comments string with multiplicites
+    def describing_comments_list
+      describing_comments.collect{|comment| comment.text}.sort
+    end
 		def describing_comments_normal_view
 			describing_comments.collect{|comment| comment.text}.sort.join(@@comment_string_joiner)
 		end
