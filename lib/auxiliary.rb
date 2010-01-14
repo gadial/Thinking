@@ -10,10 +10,10 @@ class String
   end
 end
 
-def expansion_function(n,k)
+def expansion_function(n,k,jump)
   #geometric series
   result = 0
   summand = n
-  k.times {result += summand; summand /= 2}
+  k.times {|i| result += summand; summand /= 2 if i % jump == 0}
   result
 end

@@ -5253,3 +5253,129 @@ Processing MainController#set_view_type (for 127.0.0.1 at 2010-01-14 10:42:42) [
   [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
 Rendered main/_result_user_list (12.6ms)
 Completed in 66ms (View: 13, DB: 40) | 200 OK [http://localhost/main/set_view_type]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:45:38) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (9.3ms)
+Completed in 34ms (View: 19, DB: 2) | 200 OK [http://localhost/main/results]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#set_view_type (for 127.0.0.1 at 2010-01-14 10:45:41) [POST]
+  Parameters: {"view_type"=>"inflated_view", "authenticity_token"=>"zfKgyGumYF44njih2A/Kg6VUkHw3KrOkSLJyDf1vWtE="}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` ORDER BY name[0m
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.2ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-01-14 08:45:41', `view_type` = 'inflated_view' WHERE `id` = 7[0m
+  [4;36;1mSQL (34.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;36;1mComment Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (16.8ms)
+Completed in 67ms (View: 17, DB: 37) | 200 OK [http://localhost/main/set_view_type]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:46:03) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+
+ActionView::TemplateError (wrong number of arguments (3 for 2)) on line #10 of app/views/main/_result_user_list.html.erb:
+7: 	  when "normal_view" %>
+8: 	  <%= user.describing_comments_normal_view %>
+9:       <% when "inflated_view" %>
+10: 	  <%= user.describing_comments_inflated_view %>
+11:       <%when "truncted_view"%>
+12: 	  <%= user.describing_comments_truncted_view %>
+13:       <% end %>
+
+    app/models/user.rb:63:in `expansion_function'
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/models/user.rb:63:in `collect'
+    app/models/user.rb:63:in `describing_comments_inflated_view'
+    app/views/main/_result_user_list.html.erb:10
+    app/views/main/_result_user_list.html.erb:1:in `each'
+    app/views/main/_result_user_list.html.erb:1
+    app/views/main/results.html.erb:15
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (37.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:46:21) [GET]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` ORDER BY name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` [0m
+  [4;36;1mComment Load (0.9ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;35;1mComment Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (25.7ms)
+Completed in 101ms (View: 49, DB: 3) | 200 OK [http://localhost/main/results]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MainController#results (for 127.0.0.1 at 2010-01-14 10:46:38) [GET]
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` ORDER BY name[0m
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`name` = 'לם') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering main/results
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM `comments` [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 6) [0m
+  [4;36;1mComment Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 4) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 2) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 3) [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.target_id = 1) [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.target_id = 5) [0m
+Rendered main/_result_user_list (15.2ms)
+Completed in 40ms (View: 25, DB: 2) | 200 OK [http://localhost/main/results]
