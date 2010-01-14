@@ -41,9 +41,9 @@ belongs_to :session
       comments_to_delete = self.describing_comments.find_all{|comment| submitter == nil or comment.submitter.name == submitter}
       self.describing_comments.delete(comments_to_delete)
       comment_string ||=""
-      comment_string.split(@@comment_string_seperator).collect do |comment_text|
+      comment_string.split(@@comment_string_seperator).collect{|comment| comment.clear}.uniq.collect do |comment_text|
         Comment.new do |comment|
-            comment.text = comment_text.clear
+            comment.text = comment_text
             comment.submitter = User.find_by_name(submitter)
             comment.target = self
             comment.save
