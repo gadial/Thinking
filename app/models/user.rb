@@ -51,6 +51,9 @@ belongs_to :session
       end
     end
 		#one sorted comments string with multiplicites
+    def number_of_commenting_users
+      describing_comments.collect{|comment| comment.submitter_id}.uniq.length
+    end
     def describing_comments_list
       describing_comments.collect{|comment| comment.text}.sort
     end
