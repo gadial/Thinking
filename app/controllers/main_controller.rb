@@ -45,7 +45,7 @@ class MainController < ApplicationController
       else
         if user.password_hash == User.hashed_password(password, user.salt)
           flash[:notice] = "ההתחברות הושלמה בהצלחה"
-          session[:name] = name
+          session[:name] = user.name
           redirect_to :action =>"index"
         else
           flash.now[:error] = "הססמא שגויה"
