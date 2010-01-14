@@ -6,7 +6,7 @@ end
 
 class String
   def clear
-    delete("<>\r")
+    delete("<>").rstrip
   end
 end
 
