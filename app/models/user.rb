@@ -7,10 +7,12 @@ class User < ActiveRecord::Base
 #  validates_length_of :name, :within => 3..20
   has_many :submitted_comments,
             :class_name => "Comment",
-						:foreign_key => "submitter_id"
+						:foreign_key => "submitter_id",
+            :dependent => :destroy
   has_many :describing_comments,
             :class_name => "Comment",
-						:foreign_key => "target_id"
+						:foreign_key => "target_id",
+            :dependent => :destroy
 belongs_to :session
 
 						validates_uniqueness_of :name, :on => :create, :message => "שם המשתמש כבר תפוס"
@@ -40,6 +42,7 @@ belongs_to :session
       self.describing_comments.delete(comments_to_delete)
       comment_string ||=""
       comment_string.split(@@comment_string_seperator).collect do |comment_text|
+        STDERR.puts "Now adding comment: #{comment_text}"
         Comment.new do |comment|
             comment.text = comment_text.delete("<>")
             comment.submitter = User.find_by_name(submitter)
