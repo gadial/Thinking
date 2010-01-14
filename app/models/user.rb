@@ -42,9 +42,8 @@ belongs_to :session
       self.describing_comments.delete(comments_to_delete)
       comment_string ||=""
       comment_string.split(@@comment_string_seperator).collect do |comment_text|
-        STDERR.puts "Now adding comment: #{comment_text}"
         Comment.new do |comment|
-            comment.text = comment_text.delete("<>")
+            comment.text = comment_text.clear
             comment.submitter = User.find_by_name(submitter)
             comment.target = self
             comment.save
