@@ -15,6 +15,7 @@ class AdminController < ApplicationController
   def clean_comments
     for comment in Comment.find(:all)
       comment.text = comment.text.clear
+      comment.save
     end
     redirect_to :action => index
   end
