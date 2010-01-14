@@ -38,6 +38,15 @@ class AdminController < ApplicationController
       comment_to_remove.delete
     end
   end
+  def reset_password
+    redirect_to :action => :unauthorized unless authorized?
+    @users = User.find(:all)
+    user_to_reset =  User.find_by_id(params[:id])
+    if user_to_reset != nil
+      user_to_reset.password = "1234"
+      user_to_reset.save
+    end
+  end
   def unauthorized
     
   end
