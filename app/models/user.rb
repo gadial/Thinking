@@ -4,6 +4,7 @@ require 'auxiliary'
 class User < ActiveRecord::Base
   @@comment_string_seperator = "\n"
   @@comment_string_joiner = " | "
+  @@low_amount_of_commenters = 5
 #  validates_length_of :name, :within => 3..20
   has_many :submitted_comments,
             :class_name => "Comment",
@@ -52,7 +53,8 @@ belongs_to :session
     end
 		#one sorted comments string with multiplicites
     def number_of_commenting_users
-      describing_comments.collect{|comment| comment.submitter_id}.uniq.length
+      temp = describing_comments.collect{|comment| comment.submitter_id}.uniq.length
+      ((temp >= @@low_amount_of_commenters)?(temp.to_s):("פחות מ-#{@@low_amount_of_commenters}"))
     end
     def describing_comments_list
       describing_comments.collect{|comment| comment.text}.sort
