@@ -1,0 +1,5 @@
+<h1>Delete Users</h1>
+<% for user in @users do %>
+  <p><%=  link_to user.name, :action => :delete_users, :id => user.id%></p>
+<% end %>
+

@@ -22,6 +22,16 @@ class AdminController < ApplicationController
     redirect_to :action => :unauthorized unless authorized?
 		redirect_to :action => :users
 	end
+  def delete_users
+    redirect_to :action => :unauthorized unless authorized?
+		@users = User.find(:all)
+    STDERR.puts @users.inspect
+    user_to_delete = User.find_by_id(params[:id])
+    if user_to_delete != nil
+      user_to_delete.destroy
+      redirect_to :action => :index
+    end
+  end
   def clean_comments
     redirect_to :action => :unauthorized unless authorized?
     for comment in Comment.find(:all)
