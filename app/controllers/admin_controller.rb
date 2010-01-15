@@ -43,7 +43,7 @@ class AdminController < ApplicationController
   def remove_comments
     redirect_to :action => :unauthorized unless authorized?
     @users = User.find(:all, :order => "name").reject{|u| u.participates == 0}
-    comment_to_remove = Comment.find_by_text_and_target_id(params[:comment],params[:target_id])
+    comment_to_remove = Comment.find_by_id(params[:comment])
     if comment_to_remove != nil   
       comment_to_remove.delete
     end

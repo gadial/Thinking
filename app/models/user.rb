@@ -57,7 +57,7 @@ belongs_to :session
       ((temp >= @@low_amount_of_commenters)?(temp.to_s):("פחות מ-#{@@low_amount_of_commenters}"))
     end
     def describing_comments_list
-      describing_comments.collect{|comment| comment.text}.sort
+      describing_comments.sort{|a,b| a.text <=> b.text}
     end
 		def describing_comments_normal_view
 			describing_comments.collect{|comment| comment.text}.sort.join(@@comment_string_joiner)
