@@ -70,4 +70,8 @@ belongs_to :session
 			comments = describing_comments.collect{|comment| comment.text}
 			comments.uniq.sort.collect{|comment| "<span style=\"font-size: #{expansion_function(100,comments.count(comment),2)}%\">#{comment}</span>"}.join(@@comment_string_joiner)
 		end
+    def describing_comments_counted_view
+			comments = describing_comments.collect{|comment| comment.text}
+			comments.uniq.sort.collect{|comment| comment + ((comments.count(comment)>1)?(" (#{comments.count(comment)} פעמים)"):(""))}.join(@@comment_string_joiner)
+		end
 end
