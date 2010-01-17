@@ -17,7 +17,9 @@
         <li><%= link_to "להתנתקות", :action => "logout" %></li>
       <% else %>
         <li><%= link_to "התחברות",:action => "login" %></li>
-        <li><%= link_to "הרשמה",:action => "register" %></li>
+        <% if Session.current.registration_enabled%>
+          <li><%= link_to "הרשמה",:action => "register" %></li>
+        <% end %>
       <% end %>
       <% if  Session.current.results_view_enabled%>
         <li><%= link_to "התוצאות",:action => "results" %></li>

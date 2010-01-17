@@ -17,6 +17,7 @@ class MainController < ApplicationController
 		render :partial => "result_user_list"
 	end
 	def register
+    redirect_to :action => :index unless Session.current.registration_enabled
 		@user = User.new
 		@user.participates = 0 #pending manual authorization
 	end
