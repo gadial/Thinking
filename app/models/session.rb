@@ -4,4 +4,7 @@ class Session < ActiveRecord::Base
 	def Session.current
 		Session.find_by_active(1)
 	end
+  def Session.next_number
+    (Session.find(:all).collect{|s| s.number}.max || 0) + 1
+  end
 end

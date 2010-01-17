@@ -1,0 +1,8 @@
+<h1>Edit Session</h1>
+<% form_for @current_session, :url => {:controller => :admin, :action => :update_session} do |f| %>
+  <p><%= f.submit "אשר" %> </p>
+  <p><%= f.label "Registration enabled" %> <%= f.check_box :registration_enabled%> </p>
+  <p><%= f.label "Commenting enabled" %> <%= f.check_box :commenting_enabled%> </p>
+  <p><%= f.label "Results view enabled" %> <%= f.check_box :results_view_enabled%> </p>
+  <p><%= f.hidden_field :id%> </p>
+<% end  %>

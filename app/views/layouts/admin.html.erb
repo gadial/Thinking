@@ -14,16 +14,14 @@
   <div id="menu">
     <ul id="nav">
       <% if session[:name] != nil %>
-        <li><%= link_to "להתנתקות", :action => "logout" %></li>
+        <li><%= link_to "להתנתקות", :controller => :main,:action => "logout" %></li>
       <% else %>
-        <li><%= link_to "התחברות",:action => "login" %></li>
-        <li><%= link_to "הרשמה",:action => "register" %></li>
-      <% end %>
-      <% if  Session.current.results_view_enabled%>
-        <li><%= link_to "התוצאות",:action => "results" %></li>
-      <% end %>
-      <% if session[:name] != nil and Session.current.commenting_enabled%>
-        <li><%= link_to "לכתיבת ההערות",:action => "edit_comments" %></li>
+        <li><%= link_to "התחברות",:controller => :main, :action => "login" %></li>
+        <li><%= link_to "הרשמה",:controller => :main,:action => "register" %></li>
+      <% end  %>
+      <li><%= link_to "התוצאות",:controller => :main,:action => "results" %></li>
+      <% if session[:name] != nil %>
+        <li><%= link_to "לכתיבת ההערות",:controller => :main,:action => "edit_comments" %></li>
       <% end  %>
       <li><%= link_to "לעמוד הראשי",:action => "index" %></li>
     </ul>

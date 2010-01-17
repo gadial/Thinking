@@ -1,7 +1,9 @@
 <% form_tag :action => :clean_comments do %>
         <%= submit_tag "נקה את ההערות" %>
 <% end  %>
-
-<%= link_to "Delete users", :action => :delete_users %>
-<%= link_to "Remove comments", :action => :remove_comments %>
-<%= link_to "Reset passwords", :action => :reset_password %>
+<p><%= link_to "Delete users", :action => :delete_users %></p>
+<p><%= link_to "Remove comments", :action => :remove_comments %></p>
+<p><%= link_to "Reset passwords", :action => :reset_password %></p>
+<p><%= link_to "Show common comments", :action => :show_common_comments %></p>
+<p><%= link_to "Hide all users", :action => :hide_all_users %></p>
+<p><%= link_to "Edit session", :action => :edit_session %></p>

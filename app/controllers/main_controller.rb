@@ -1,5 +1,6 @@
 class MainController < ApplicationController
 	def results
+    redirect_to :action => :index unless Session.current.results_view_enabled
 		@users = User.find(:all, :order => "name")
 		session[:view_type] ||= "normal_view"
     temp_user = User.find_by_name(session[:name])
@@ -58,6 +59,7 @@ class MainController < ApplicationController
     redirect_to :action => "index"
   end
 	def edit_comments
+    redirect_to :action => :index unless Session.current.commenting_enabled
 		@users = User.find(:all, :order => "name")
 	end
 	def edit_password

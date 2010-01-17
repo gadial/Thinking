@@ -4,7 +4,7 @@
     </h2>
     <p>
       <%for comment in user.describing_comments_list %>
-      <%= link_to comment.text, {:action => :remove_comments, :comment => comment.id}, {:title => comment.submitter.name}%>
+      <%= link_to comment.text, {:action => :remove_comments, :comment => comment.id}, {:title => comment.submitter.name}%> | 
       <% end %>
     </p>
     <br>
