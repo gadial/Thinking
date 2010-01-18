@@ -67,6 +67,12 @@ class MainController < ApplicationController
 		@user = User.find_by_name(session[:name])
 	end
   def save_comments
+    STDERR.puts params.inspect
+    STDERR.puts params[:active]
+    STDERR.puts "yeah baby" unless params[:active] != nil
+    redirect_to :action => :index and return unless params[:active] != nil
+    STDERR.puts "got here"
+
     comments = {}
     params.find_all{|key, val| key =~ /^user_.*/}.each do |pair|
       pair[0] =~ /^user_/

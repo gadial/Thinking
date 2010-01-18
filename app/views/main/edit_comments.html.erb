@@ -2,6 +2,7 @@
 <p>הכניסו את ההערות למשתמשים כשכל הערה בשורה נפרדת</p>
 
 <%form_tag :action => :save_comments do %>
+<%= hidden_field_tag 'active', true %>
 <table>
 	<% for user in @users.reject{|u| u.name == session[:name] or u.participates == 0} do %>
 	  <tr>

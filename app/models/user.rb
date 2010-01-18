@@ -2,20 +2,18 @@ require 'digest/sha2'
 require 'auxiliary'
 
 class User < ActiveRecord::Base
-  @@comment_string_seperator = "\n"
-  @@comment_string_joiner = " | "
-  @@low_amount_of_commenters = 5
-#  validates_length_of :name, :within => 3..20
-  has_many :submitted_comments,
-            :class_name => "Comment",
-						:foreign_key => "submitter_id",
-            :dependent => :destroy
-  has_many :describing_comments,
-            :class_name => "Comment",
-						:foreign_key => "target_id",
-            :dependent => :destroy
-belongs_to :session
-
+    @@comment_string_seperator = "\n"
+    @@comment_string_joiner = " | "
+    @@low_amount_of_commenters = 5
+    has_many  :submitted_comments,
+              :class_name => "Comment",
+              :foreign_key => "submitter_id",
+              :dependent => :destroy
+    has_many  :describing_comments,
+              :class_name => "Comment",
+              :foreign_key => "target_id",
+              :dependent => :destroy
+    belongs_to :session
 						validates_uniqueness_of :name, :on => :create, :message => "שם המשתמש כבר תפוס"
 						validates_confirmation_of :password, :message => "הססמא ואישור הססמא אינם תואמים"
 						validates_length_of :password, :minimum => 5, :message => "אנא בחרו ססמא שאורכה לפחות חמישה תווים", :on => :create
