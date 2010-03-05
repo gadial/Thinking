@@ -37,10 +37,13 @@ class User < ActiveRecord::Base
       self.describing_comments.find_all{|comment| submitter == nil or comment.submitter.name == submitter}.collect{|comment| comment.text}.join(@@comment_string_seperator)
     end
     def set_comments(comment_string, submitter = nil)
-      comments_to_delete = self.describing_comments.find_all{|comment| submitter == nil or comment.submitter.name == submitter}
-      self.describing_comments.delete(comments_to_delete)
       comment_string ||=""
-      comment_string.split(@@comment_string_seperator).collect{|comment| comment.clear}.uniq.collect do |comment_text|
+      comments = comment_string.split(@@comment_string_seperator).collect{|comment| comment.clear}.uniq
+      existing_comments = self.describing_comments.find_all{|comment| submitter == nil or comment.submitter.name == submitter}
+      comments_to_delete = existing_comments.find_all{|comment| not comments.include?(comment.text)}
+      self.describing_comments.delete(comments_to_delete)
+      existing_comments.collect!{|comment| comment.text}
+      comments.reject{|comment| existing_comments.include?(comment)}.each do |comment_text|
         Comment.new do |comment|
             comment.text = comment_text
             comment.submitter = User.find_by_name(submitter)
