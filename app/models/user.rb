@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     end
     def set_comments(comment_string, submitter = nil)
       comment_string ||=""
-      comments = comment_string.split(@@comment_string_seperator).collect{|comment| comment.clear}.uniq
+      comments = comment_string.split(@@comment_string_seperator).collect{|comment| comment.clear}.reject{|c| c == ""}.uniq
       existing_comments = self.describing_comments.find_all{|comment| submitter == nil or comment.submitter.name == submitter}
       comments_to_delete = existing_comments.find_all{|comment| not comments.include?(comment.text)}
       self.describing_comments.delete(comments_to_delete)
@@ -60,19 +60,27 @@ class User < ActiveRecord::Base
     def describing_comments_list
       describing_comments.sort{|a,b| a.text <=> b.text}
     end
-		def describing_comments_normal_view
-			describing_comments.collect{|comment| comment.text}.sort.join(@@comment_string_joiner)
+    def describing_comments_text(min_date = nil)
+#      describing_comments.reject{|comment| min_date and comment.created_at <= min_date}.collect{|comment| comment.text}
+       describing_comments.collect do |c|
+         (min_date and c.created_at > min_date)?
+           ("<span style=\"background-color:\#FF0099\">#{c.text}</span>"):
+           (c.text)
+       end
+    end
+		def describing_comments_normal_view(min_date = nil)
+			describing_comments_text(min_date).sort.join(@@comment_string_joiner)
 		end
-		def describing_comments_truncted_view
-			describing_comments.collect{|comment| comment.text}.uniq.sort.join(@@comment_string_joiner)
+		def describing_comments_truncted_view(min_date = nil)
+			describing_comments_text(min_date).uniq.sort.join(@@comment_string_joiner)
 		end
 		#comments string without multiplicities, with repeated comments inflated
-		def describing_comments_inflated_view
-			comments = describing_comments.collect{|comment| comment.text}
+		def describing_comments_inflated_view(min_date = nil)
+      comments = describing_comments_text(min_date)
 			comments.uniq.sort.collect{|comment| "<span style=\"font-size: #{expansion_function(100,comments.count(comment),2)}%\">#{comment}</span>"}.join(@@comment_string_joiner)
 		end
-    def describing_comments_counted_view
-			comments = describing_comments.collect{|comment| comment.text}
+    def describing_comments_counted_view(min_date = nil)
+      comments = describing_comments_text(min_date)
 			comments.uniq.sort.collect{|comment| comment + ((comments.count(comment)>1)?(" (#{comments.count(comment)} פעמים)"):(""))}.join(@@comment_string_joiner)
 		end
 end

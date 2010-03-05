@@ -1,6 +1,9 @@
 <h1>ברוכים הבאים אל "מה חושבים עליכם"</h1>
 <% if session[:name] != nil and @user != nil%>
   <p>מחובר בתור  <%= session[:name]%> (<%= link_to "להתנתקות", :action => "logout" %>)</p>
+  <% if @new_comment_number > 0 %>
+    <p><%= link_to "There are #{@new_comment_number} new comments",:action => "results", :min_time => @user.last_visit_to_result_list %></p>
+  <% end %>
   <p><%= link_to "שינוי ססמא", :action => :edit_password %></p>
   <% form_for @user, :url => {:controller => :main, :action => :update_user} do |f| %>
 	<%= f.error_messages  :header_message => "עדכון המשתמש נכשל", :message => "הבעיות הבאות מנעו את עדכון המשתמש:" %>
