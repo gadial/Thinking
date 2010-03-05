@@ -21,7 +21,7 @@
           <li><%= link_to "הרשמה",:action => "register" %></li>
         <% end %>
       <% end %>
-      <% if  Session.current.results_view_enabled%>
+      <% if  Session.current.commenting_results_view_enabled%>
         <li><%= link_to "התוצאות",:action => "results" %></li>
       <% end %>
       <% if session[:name] != nil and Session.current.commenting_enabled%>

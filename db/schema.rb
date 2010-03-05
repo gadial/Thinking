@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100117073435) do
+ActiveRecord::Schema.define(:version => 20100124063212) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -36,10 +36,12 @@ ActiveRecord::Schema.define(:version => 20100117073435) do
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "registration_enabled", :default => false
-    t.boolean  "commenting_enabled",   :default => false
-    t.boolean  "results_view_enabled", :default => false
-    t.boolean  "active",               :default => false
+    t.boolean  "registration_enabled",            :default => false
+    t.boolean  "commenting_enabled",              :default => false
+    t.boolean  "commenting_results_view_enabled", :default => false
+    t.boolean  "active",                          :default => false
+    t.boolean  "matching_enabled",                :default => false
+    t.boolean  "matching_results_view_enabled",   :default => false
   end
 
   create_table "users", :force => true do |t|

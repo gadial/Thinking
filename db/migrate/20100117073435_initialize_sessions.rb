@@ -4,6 +4,7 @@ class InitializeSessions < ActiveRecord::Migration
     Session.new do |s|
       s.active = true
       s.number = Session.next_number
+      s.registration_enabled = true
       s.save
     end
   end

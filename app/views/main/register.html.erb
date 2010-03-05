@@ -1,27 +1,30 @@
 <h1>הרשמה</h1>
 
+
 <% form_for @user, :url => {:controller => :main, :action => :add_user} do |f| %>
-	<%= f.error_messages  :header_message => "רישום המשתמש נכשל", :message => "הבעיות הבאות מנעו את רישום המשתמש:" %>
-
-  <p>
-    <%= f.label "שם משתמש" %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label "ססמא" %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label "הקלידו את הססמא שנית" %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p>
-    <%= f.label "גלוי לשאר המשתתפים"  %>
-    <%= f.check_box :participates %>
-  </p>
-  <p>
-    <%= f.submit "אשר" %>
-  </p>
+<table>
+  <tr>
+    <td><%= f.error_messages  :header_message => "רישום המשתמש נכשל", :message => "הבעיות הבאות מנעו את רישום המשתמש:" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "שם משתמש" %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "ססמא" %></td>
+    <td><%= f.password_field :password %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "הקלידו את הססמא שנית" %></td>
+    <td><%= f.password_field :password_confirmation %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "גלוי לשאר המשתתפים"  %></td>
+    <td><%= f.check_box :participates %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit "אשר" %></td>
+  </tr>
 <% end %>
-
+</table>
 <%= link_to 'חזרה', users_path %>

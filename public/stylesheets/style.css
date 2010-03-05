@@ -81,6 +81,7 @@ a.main:hover
 	background : #FFF6BF;
 }
 
+.fieldWithErrors{text-align: justify;}
 
 #content {
 font: 100%/1.3 TrebuchetMS,Arial,sans-serif;
