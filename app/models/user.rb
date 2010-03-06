@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     @@comment_string_joiner = " | "
     @@low_amount_of_commenters = 5
     @@new_comment_color = "yellow"
+    @@max_comment_size = 80
     has_many  :submitted_comments,
               :class_name => "Comment",
               :foreign_key => "submitter_id",
@@ -47,7 +48,7 @@ class User < ActiveRecord::Base
       existing_comments.collect!{|comment| comment.text}
       comments.reject{|comment| existing_comments.include?(comment)}.each do |comment_text|
         Comment.new do |comment|
-            comment.text = comment_text
+            comment.text = comment_text[0..@@max_comment_size]
             comment.submitter = User.find_by_name(submitter)
             comment.target = self
             comment.save

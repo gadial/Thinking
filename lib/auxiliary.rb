@@ -6,7 +6,9 @@ end
 
 class String
   def clear
-    delete("<>").rstrip
+    temp = delete("<>|").strip
+    while temp.sub!("  "," "); end
+    temp
   end
 end
 
@@ -17,3 +19,6 @@ def expansion_function(n,k,jump)
   k.times {|i| result += summand; summand /= 2 if i % jump == 0}
   result
 end
+
+a = "a  a"
+puts a.clear
