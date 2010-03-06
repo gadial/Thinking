@@ -72,7 +72,7 @@ class MainController < ApplicationController
       pair[0] =~ /^user_/
       comments[$'] = pair[1]
     end
-    User.find(:all).each do |user|
+    User.find(:all).reject{|user| user.name == session[:name]}.each do |user|
       comments_string = comments[user.name]
       user.set_comments(comments_string, session[:name])
     end

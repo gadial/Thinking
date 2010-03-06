@@ -22,7 +22,7 @@
         <% end %>
       <% end %>
       <% if  Session.current.commenting_results_view_enabled%>
-        <li><%= link_to "התוצאות",:action => "results" %></li>
+        <li><%= link_to "התוצאות",:action => "results" ,:min_time => ((@user)?(@user.last_visit_to_result_list):(nil))%></li>
       <% end %>
       <% if session[:name] != nil and Session.current.commenting_enabled%>
         <li><%= link_to "לכתיבת ההערות",:action => "edit_comments" %></li>
