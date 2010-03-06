@@ -25,7 +25,8 @@ class MainController < ApplicationController
     @user.last_visit_to_result_list = Time.now
 		 if @user.save
         flash[:notice] = 'המשתמש נוצר בהצלחה'
-        render :action => "index"
+        session[:name] = @user.name
+        redirect_to :action => "index"
       else
         render :action => "register"
       end

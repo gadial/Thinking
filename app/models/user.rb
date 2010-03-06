@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     @@comment_string_joiner = " | "
     @@low_amount_of_commenters = 5
     @@new_comment_color = "yellow"
-    @@max_comment_size = 160
+    @@max_comment_size = 200
     has_many  :submitted_comments,
               :class_name => "Comment",
               :foreign_key => "submitter_id",
