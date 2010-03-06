@@ -14,9 +14,20 @@ class AdminController < ApplicationController
     redirect_to :action => :unauthorized and return unless authorized?
   end
 
-  def users
+  def manage_users
     redirect_to :action => :unauthorized and return unless authorized?
 		@users = User.find(:all)
+  end
+  def save_users
+    redirect_to :action => :unauthorized and return unless authorized?
+    enabled = params["user_enabled"]
+    User.find(:all).each do |user|
+      if enabled.include?(user.id.to_s) != user.enabled
+        user.enabled = (not user.enabled)
+        user.save
+      end
+    end
+    redirect_to :action => :index
   end
 	def update_users
     redirect_to :action => :unauthorized and return unless authorized?
@@ -64,7 +75,7 @@ class AdminController < ApplicationController
   end
   def hide_all_users
     redirect_to :action => :unauthorized and return unless authorized?
-    User.find(:all).each{|u| u.participates = false; u.save}
+    User.find(:all).each{|u| u.shown = false; u.save}
     redirect_to :action => :index
   end
   def edit_session

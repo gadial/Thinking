@@ -4,7 +4,7 @@
 <%form_tag :action => :save_comments do %>
 <%= hidden_field_tag 'active', true %>
 <table>
-	<% for user in @users.reject{|u| u.name == session[:name] or u.participates == 0} do %>
+	<% for user in @users.find_all{|u| u.name != session[:name] and u.enabled} do %>
 	  <tr>
 		<td> <%=h user.name %>: </td>
 		<td> <%= text_area_tag "user_" + user.name, user.comments_string(session[:name]), :size => "80x4" %> </td>

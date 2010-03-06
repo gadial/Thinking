@@ -1,4 +1,4 @@
-  <% for user in @users.reject{|u| u.participates == 0} do %>
+  <% for user in @users.find_all{|u| u.shown and u.enabled} do %>
     <h2>
     <%=h user.name %>
     </h2>

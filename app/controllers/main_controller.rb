@@ -19,7 +19,6 @@ class MainController < ApplicationController
 	def register
     redirect_to :action => :index unless Session.current.registration_enabled
 		@user = User.new
-		@user.participates = 0 #pending manual authorization
 	end
 	def add_user
 		@user = User.new(params[:user])
@@ -35,7 +34,7 @@ class MainController < ApplicationController
 		if @user.update_attributes(params[:user])
 			flash[:notice] = "המשתמש עודכן בהצלחה"
 		end
-			render :action => "index"
+			redirect_to :action => "index"
 	end
   def login
     name = params[:name]

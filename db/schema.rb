@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100305152832) do
+ActiveRecord::Schema.define(:version => 20100306055144) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -48,12 +48,13 @@ ActiveRecord::Schema.define(:version => 20100305152832) do
     t.string   "name"
     t.string   "password_hash"
     t.string   "salt"
-    t.integer  "participates"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "view_type",                 :default => "normal_view"
     t.boolean  "admin",                     :default => false
     t.datetime "last_visit_to_result_list"
+    t.boolean  "enabled",                   :default => false
+    t.boolean  "shown",                     :default => true
   end
 
 end

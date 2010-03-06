@@ -2,7 +2,7 @@
 מה חושבים עליכם? התוצאות
 </h1>
 
-<p>כרגע עם <%= Comment.find(:all).find_all{|c| c.target.participates == 1}.size%> תגובות על <%= @users.reject{|u| u.participates == 0}.length%> משתמשים </p>
+<p>כרגע עם <%= Comment.find(:all).find_all{|c| c.target.enabled}.size%> תגובות על <%= @users.find_all{|u| u.enabled}.length%> משתמשים </p>
 
 <select id="options" onchange="<%= remote_function(:update => "user_list",
       :url => { :action => :set_view_type }, :with => "'view_type=' + encodeURIComponent(value)") %>">
