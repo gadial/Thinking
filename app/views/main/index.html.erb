@@ -11,10 +11,12 @@
   <p><%= link_to "שינוי ססמא", :action => :edit_password %></p>
   <% form_for @user, :url => {:controller => :main, :action => :update_user} do |f| %>
 	<%= f.error_messages  :header_message => "עדכון המשתמש נכשל", :message => "הבעיות הבאות מנעו את עדכון המשתמש:" %>
-	<p>
-	  <%= f.label "גלוי לשאר המשתתפים"  %>
-	  <%= f.check_box :shown %>
-	</p>
+        <% if false %>
+          <p>
+            <%= f.label "גלוי לשאר המשתתפים"  %>
+            <%= f.check_box :shown %>
+          </p>
+        <% end %>
         <p>
           <%= f.label "לינק לאווטר הפורומי" %>
           <%= f.text_field :avatar_link  %>
