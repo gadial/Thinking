@@ -86,4 +86,8 @@ class User < ActiveRecord::Base
       comments = describing_comments_text(min_date)
 			comments.uniq.sort.collect{|comment| comment + ((comments.count(comment)>1)?("<span style=\"font-style: italic\"> (#{comments.count(comment)} פעמים)</span>"):(""))}.join(@@comment_string_joiner)
 		end
+
+    def User.can_add_comments(name)
+      User.find_by_name(name).enabled
+    end
 end
