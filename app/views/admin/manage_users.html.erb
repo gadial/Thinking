@@ -1,0 +1,16 @@
+<h1>User management</h1>
+<%form_tag :action => :save_users do %>
+<table>
+	<% for user in @users do %>
+	  <tr>
+		<td> <%=h user.name %>: </td>
+		<td> <%= check_box_tag "user_enabled[]", user.id.to_s, user.enabled %> </td>
+	  </tr>
+	<% end %>
+</table>
+
+<center>
+  <%= submit_tag "עדכן" %>
+  <%= link_to "חזרה", :action => "index" %>
+  </center>
+<% end %>

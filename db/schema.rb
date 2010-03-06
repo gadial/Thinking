@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100306055144) do
+ActiveRecord::Schema.define(:version => 20100306075756) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20100306055144) do
     t.datetime "last_visit_to_result_list"
     t.boolean  "enabled",                   :default => false
     t.boolean  "shown",                     :default => true
+    t.string   "avatar_link",               :default => ""
   end
 
 end

@@ -1,6 +1,7 @@
   <% for user in @users.find_all{|u| u.shown and u.enabled} do %>
     <h2>
-    <%=h user.name %>
+      <img src="<%= user.avatar_link%>" alt="" width="100" height="100" />
+      <%=h user.name %>
     </h2>
     <p>
       <% case session[:view_type]
