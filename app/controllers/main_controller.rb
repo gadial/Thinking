@@ -87,10 +87,11 @@ class MainController < ApplicationController
 	end
   def results
     @users = User.find(:all, :order => "name")
-    @user = User.find_by_name(session[:name])
-    @user.last_visit_to_result_list = Time.now
-    @user.save
-
+    if session[:name]
+      @user = User.find_by_name(session[:name])
+      @user.last_visit_to_result_list = Time.now
+      @user.save
+    end
     session[:min_time] = ((params[:min_time] != nil)?(Time.parse(params[:min_time])):(nil))
   end
 end
