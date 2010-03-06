@@ -1,6 +1,6 @@
   <% for user in @users.find_all{|u| u.shown and u.enabled} do %>
     <h2>
-      <img src="<%= user.avatar_link%>" alt="" width="100" height="100" />
+      <img src="<%= user.avatar_link%>" alt="" class="avatar" />
       <%=h user.name %>
     </h2>
     <p>

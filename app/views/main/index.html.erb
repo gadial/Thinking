@@ -1,7 +1,7 @@
 <h1>ברוכים הבאים אל "מה חושבים עליכם"</h1>
 <% if session[:name] != nil and @user != nil%>
   <p>מחובר בתור  <%= session[:name]%> (<%= link_to "להתנתקות", :action => "logout" %>)</p>
-  <p><img src="<%= @user.avatar_link%>" alt="" width="100" height="100" /></p>
+  <p><img src="<%= @user.avatar_link%>" alt="" class="avatar"/></p>
   <% if @new_comment_number > 0 %>
     <p><%= link_to "There are #{@new_comment_number} new comments",:action => "results", :min_time => @user.last_visit_to_result_list %></p>
   <% end %>

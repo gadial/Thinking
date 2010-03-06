@@ -131,3 +131,8 @@ table.box-table tr:hover td
 	background: #d0dafd;
 	color: #339;
 }
+
+img.avatar {
+max-width:100px;
+max-height:100px;
+}
