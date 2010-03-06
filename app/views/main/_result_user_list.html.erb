@@ -5,13 +5,13 @@
     <p>
       <% case session[:view_type]
 	  when "normal_view" %>
-	  <%= user.describing_comments_normal_view(@min_time) %>
+	  <%= user.describing_comments_normal_view(session[:min_time]) %>
       <% when "inflated_view" %>
-	  <%= user.describing_comments_inflated_view(@min_time) %>
+	  <%= user.describing_comments_inflated_view(session[:min_time]) %>
       <%when "counted_view"%>
-	  <%= user.describing_comments_counted_view(@min_time) %>
+	  <%= user.describing_comments_counted_view(session[:min_time]) %>
       <%when "truncted_view"%>
-	  <%= user.describing_comments_truncted_view(@min_time) %>
+	  <%= user.describing_comments_truncted_view(session[:min_time]) %>
       <% end %>
     </p>
     <p> (מספר מגיבים כולל: <%= user.number_of_commenting_users %>)</p>

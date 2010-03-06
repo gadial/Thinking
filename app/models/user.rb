@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     @@comment_string_seperator = "\n"
     @@comment_string_joiner = " | "
     @@low_amount_of_commenters = 5
+    @@new_comment_color = "yellow"
     has_many  :submitted_comments,
               :class_name => "Comment",
               :foreign_key => "submitter_id",
@@ -64,7 +65,7 @@ class User < ActiveRecord::Base
 #      describing_comments.reject{|comment| min_date and comment.created_at <= min_date}.collect{|comment| comment.text}
        describing_comments.collect do |c|
          (min_date and c.created_at > min_date)?
-           ("<span style=\"background-color:\#FF0099\">#{c.text}</span>"):
+           ("<span style=\"background-color:#{@@new_comment_color}\">#{c.text}</span>"):
            (c.text)
        end
     end
