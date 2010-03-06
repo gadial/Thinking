@@ -84,6 +84,6 @@ class User < ActiveRecord::Base
 		end
     def describing_comments_counted_view(min_date = nil)
       comments = describing_comments_text(min_date)
-			comments.uniq.sort.collect{|comment| comment + ((comments.count(comment)>1)?(" (#{comments.count(comment)} פעמים)"):(""))}.join(@@comment_string_joiner)
+			comments.uniq.sort.collect{|comment| comment + ((comments.count(comment)>1)?("<span style=\"font-style: italic\"> (#{comments.count(comment)} פעמים)</span>"):(""))}.join(@@comment_string_joiner)
 		end
 end
