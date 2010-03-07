@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 						validates_confirmation_of :password, :message => "הססמא ואישור הססמא אינם תואמים"
 						validates_length_of :password, :minimum => 5, :message => "אנא בחרו ססמא שאורכה לפחות חמישה תווים", :on => :create
 						validates_presence_of :name, :message => "לא ניתן לבחור שם משתמש ריק"
-            validates_format_of :avatar_link, :with => %r{^$|http\:\/\/forums\.asat\.org\.il\/download\/file\.php\?avatar\=.*\.(jpg|gif|png)}, :message => "יש לספק קישור חוקי לאווטר בפורום"
+            validates_format_of :avatar_link, :with => %r{^$|http\:\/\/forums\.asat\.org\.il\/download\/file\.php\?avatar\=\w*\.(jpg|gif|png)$}, :message => "יש לספק קישור חוקי לאווטר בפורום"
 		def create_new_salt
 			self.salt = self.object_id.to_s + Kernel.rand.to_s
 		end
