@@ -13,6 +13,8 @@
 	  <%= user.describing_comments_counted_view(session[:min_time]) %>
       <%when "truncted_view"%>
 	  <%= user.describing_comments_truncted_view(session[:min_time]) %>
+      <%else%>
+	  <%= user.describing_comments_normal_view(session[:min_time]) %>
       <% end %>
     </p>
     <p> (מספר מגיבים כולל: <%= user.number_of_commenting_users %>)</p>
