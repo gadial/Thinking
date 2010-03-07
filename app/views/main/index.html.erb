@@ -6,8 +6,9 @@
   <p>מחובר בתור  <%= session[:name]%> (<%= link_to "להתנתקות", :action => "logout" %>)</p>
   <p><img src="<%= @user.avatar_link%>" alt="" class="avatar"/></p>
   <% if @new_comment_number > 0 %>
-    <p><%= link_to "There are #{@new_comment_number} new comments",:action => "results", :min_time => @user.last_visit_to_result_list %></p>
+    <p><%= link_to "ישנן #{@new_comment_number} הערות חדשות",:action => "results", :min_time => @user.last_visit_to_result_list %></p>
   <% end %>
+  <p>נכתבו כבר <%=  @user.describing_comments.length %> הערות עלייך</p>
   <p><%= link_to "שינוי ססמא", :action => :edit_password %></p>
   <% form_for @user, :url => {:controller => :main, :action => :update_user} do |f| %>
 	<%= f.error_messages  :header_message => "עדכון המשתמש נכשל", :message => "הבעיות הבאות מנעו את עדכון המשתמש:" %>
