@@ -6,6 +6,7 @@
 <table>
 	<% for user in @users.find_all{|u| u.name != session[:name] and u.enabled} do %>
 	  <tr>
+                <td><img src="<%= user.avatar_link%>" alt="" class="avatar" /></td>
 		<td> <%=h user.name %>: </td>
 		<td> <%= text_area_tag "user_" + user.name, user.comments_string(session[:name]), :size => "80x4" %> </td>
 	  </tr>
