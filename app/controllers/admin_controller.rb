@@ -78,6 +78,11 @@ class AdminController < ApplicationController
     User.find(:all).each{|u| u.shown = false; u.save}
     redirect_to :action => :index
   end
+  def show_all_users
+    redirect_to :action => :unauthorized and return unless authorized?
+    User.find(:all).each{|u| u.shown = true; u.save}
+    redirect_to :action => :index
+  end
   def edit_session
     @current_session = Session.current
   end
