@@ -1,3 +1,9 @@
+def authorized?
+  user = User.find_by_name(session[:name])
+  return true if user != nil and user.admin
+  return false
+end
+
 class MainController < ApplicationController
 	def commenting_results
     redirect_to :action => :index unless Session.current.commenting_results_view_enabled
@@ -61,7 +67,7 @@ class MainController < ApplicationController
     redirect_to :action => "index"
   end
 	def edit_comments
-    redirect_to :action => :index and return unless Session.current.commenting_enabled
+    redirect_to :action => :index and return unless Session.current.commenting_enabled or authorized?
 		@users = User.find(:all, :order => "name")
 	end
 	def edit_password
@@ -88,7 +94,7 @@ class MainController < ApplicationController
 		end
 	end
   def results
-    redirect_to :action => :index and return unless Session.current.commenting_results_view_enabled
+    redirect_to :action => :index and return unless Session.current.commenting_results_view_enabled or authorized?
     @users = User.find(:all, :order => "name")
     if session[:name]
       @user = User.find_by_name(session[:name])
