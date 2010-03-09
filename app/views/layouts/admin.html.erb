@@ -23,6 +23,7 @@
       <% if session[:name] != nil %>
         <li><%= link_to "לכתיבת ההערות",:controller => :main,:action => "edit_comments" %></li>
       <% end  %>
+      <li><%= link_to "לפרופיל", :controller => :main, :action => "index" %></li>
       <li><%= link_to "לעמוד הראשי",:action => "index" %></li>
     </ul>
   </div>
